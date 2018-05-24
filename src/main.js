@@ -1,4 +1,6 @@
 
+
+import Vue from 'vue'
 //import $ from 'jquery'
 //import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css'
@@ -6,7 +8,14 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 import './css/index.css'
 
-import Vue from 'vue'
+/*mint*/
+import 'mint-ui/lib/style.css'
+import {Header} from 'mint-ui'
+
+/*mui*/
+import './lib/mui/css/mui.min.css'
+Vue.component( Header.name, Header )
+
 import router from './router/router.js'
 import app from './app.vue'
 

@@ -3,8 +3,8 @@
 
 /*default*/
 *{margin: 0;padding: 0;}
-h1, .h1, h2, .h2, h3, .h3{margin: 0;padding: 0;}
-body{font-family: "Microsoft YaHei","SimHei",Arial;font-size: 12px;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{margin: 0;padding: 0;}
+/*body{font-family: "Microsoft YaHei","SimHei",Arial;font-size: 12px;}*/
 a{text-decoration: none;color: #000;cursor: pointer;}
 a:visited{color: #000}
 img{border:none\9;}
