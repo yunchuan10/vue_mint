@@ -14,7 +14,9 @@ export default new Router({
 	      	}
     	}
     	
-  	]
+  	],
+  	
+  	linkActiveClass: 'mui-active'		//路由高亮类
 })
 
 
