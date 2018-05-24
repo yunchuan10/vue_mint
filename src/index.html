@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<p v-text="msg"></p>
+			<app></app>
+		</div>
+		
+		
+		<!--
+			webpack-dev-server@2 -D
+			"scripts": {
+			    "test": "echo \"Error: no test specified\" && exit 1",
+			    "dev": "webpack-dev-server --open --hot --port 3000 ",
+			    "start": "npm run dev"
+			},
+			
+			webpack@3 -D
+			html-webpack-plugin -D
+			var HtmlWebpackPlugin = require('html-webpack-plugin');
+			plugins: [
+				new HtmlWebpackPlugin({
+					template: path.join(__dirname, './src/index.html'),
+					filename: 'index.html',
+				})
+			],
+			
+			
+			css less img ......
+			
+			
+			bable ---- 配置
+			1. cnpm i babel-core babel-loader babel-plugin-transform-runtime -D
+			2. cnpm i babel-preset-env babel-preset-stage-0 -D
+			3. // loader模块
+			  	module: { 
+				    rules: [
+				       	{
+					        test: /\.js$/,
+					        use: 'babel-loader',
+					        exclude: /node_modules/
+				       	}
+				    ]
+				}
+			4. 根目录建立json文件  .babelrc 
+				{
+					"presets": ["env", "stage-0"],
+					"plugins": ["transform-runtime"]
+				}
+			
+			
+			vue: import Vue form 'vue'
+					resolve: {
+				      	alias: {'vue$': 'vue/dist/vue.js' }
+				  	}
+			
+			打包 .vue文件  ---  vue-loader
+			cnpm i vue-loader vue-template-compiler -D
+			{ test: /\.vue$/, use: 'vue-loader' }
+			"vue-loader": "^13.3.0",
+    		"vue-template-compiler": "^2.5.2",
+			
+		-->
+		
+		
+	</body>
+</html>
