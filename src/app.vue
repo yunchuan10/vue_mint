@@ -4,11 +4,9 @@
 		<mt-header fixed title="固定在顶部"></mt-header>
 		
 		<!--内容区-->
-		
-		
-		<router-view></router-view>
-		
-		
+		<transition name1="" mode="out-in">
+			<router-view></router-view>
+		</transition>
 		
 		<!--底部-->
 		<nav class="mui-bar mui-bar-tab">
@@ -39,7 +37,14 @@
 	
 </script>
 
-<style scoped>
-	.app-section{padding-top: 40px;}
+<style>
+	.app-section{padding-top: 40px;width: 100%;overflow-x: hidden;}
+	
+	.v-enter{opacity:0;transform: translateX(100%);}
+	.v-leave-to{opacity:0;transform: translateX(-100%);}
+	.v-leave, .v-enter-to{opacity:1;transform: translateX(0);}
+	.v-enter-active,.v-leave-active{transition: all 0.5s ease;position: absolute;}
+
+
 	
 </style>

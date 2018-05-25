@@ -56,7 +56,8 @@
 export default {
     data() {
         return {
-        lunList: []
+            lunList: []
+            
         };
     },
 
@@ -67,7 +68,7 @@ export default {
     methods: {
         getLun() {
             setTimeout(() => {
-                console.log(111);
+                
                 this.lunList = [
                 {
                     src:
