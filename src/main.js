@@ -21,6 +21,12 @@ import router from './router/router.js'
 import app from './app.vue'
 
 
+// 首页布局 轮播+列表
+import { Swipe, SwipeItem } from 'mint-ui';
+
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
+
 
 var vm = new Vue({
 	el: '#app',

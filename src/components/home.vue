@@ -1,0 +1,119 @@
+<template>
+    <div class="home-section">
+        <div class="lunbox">
+            <mt-swipe :auto="4000" >
+                <mt-swipe-item v-for="( item, i ) in lunList" :num="i" :key="item.url"><img :src="item.src" alt=""></mt-swipe-item>
+            </mt-swipe>
+        </div>
+
+        <!-- 九宫格 -->
+        <div class="mui-slider-item">
+            <ul class="mui-table-view mui-grid-view mui-grid-9">
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-home"></span>
+                        <div class="mui-media-body">Home</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
+                        <div class="mui-media-body">Email</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-chatbubble"></span>
+                        <div class="mui-media-body">Chat</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-location"></span>
+                        <div class="mui-media-body">location</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-search"></span>
+                        <div class="mui-media-body">Search</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-phone"></span>
+                        <div class="mui-media-body">Phone</div>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>    
+    </div>
+    
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+        lunList: []
+        };
+    },
+
+    created() {
+        this.getLun();
+    },
+
+    methods: {
+        getLun() {
+            setTimeout(() => {
+                console.log(111);
+                this.lunList = [
+                {
+                    src:
+                    "http://uliaobao.oss-cn-hangzhou.aliyuncs.com/orig/uliaobao/ad/2018/0511/21/prod-200047228-3349.jpg",
+                    url: "1"
+                },
+                {
+                    src:
+                    "http://uliaobao.oss-cn-hangzhou.aliyuncs.com/orig/uliaobao/ad/2018/0524/21/prod-165616580-0147.jpg",
+                    url: "2"
+                },
+                {
+                    src:
+                    "http://uliaobao.oss-cn-hangzhou.aliyuncs.com/orig/uliaobao/ad/2017/1219/21/prod-102514114-8448.jpg",
+                    url: "3"
+                },
+                {
+                    src:
+                    "http://uliaobao.oss-cn-hangzhou.aliyuncs.com/orig/uliaobao/ad/2018/0524/21/prod-165616580-0147.jpg",
+                    url: "4"
+                }
+                ];
+            }, 1000);
+        }
+    }
+};
+</script>
+
+<style scoped>
+.lunbox {
+  height: 200px;
+  background: #ddd;
+}
+.mint-swipe-item > img {
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
