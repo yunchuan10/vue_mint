@@ -4,7 +4,7 @@
 		<mt-header fixed title="固定在顶部"></mt-header>
 		
 		<!--内容区-->
-		<transition name1="" mode="out-in">
+		<transition appear name="ani" mode="out-in">
 			<router-view></router-view>
 		</transition>
 		
@@ -38,12 +38,12 @@
 </script>
 
 <style>
-	.app-section{padding-top: 40px;width: 100%;overflow-x: hidden;}
+	.app-section{padding: 40px 0 50px;width: 100%;overflow-x: hidden;}
 	
-	.v-enter{opacity:0;transform: translateX(100%);}
-	.v-leave-to{opacity:0;transform: translateX(-100%);}
-	.v-leave, .v-enter-to{opacity:1;transform: translateX(0);}
-	.v-enter-active,.v-leave-active{transition: all 0.5s ease;position: absolute;}
+	.ani-enter{opacity:0;transform: translateX(100%);}
+	.ani-leave-to{opacity:0;transform: translateX(-100%);}
+	.ani-leave, .ani-enter-to{opacity:1;transform: translateX(0);}
+	.ani-enter-active,.ani-leave-active{transition: all 0.5s ease;position: absolute;}
 
 
 	

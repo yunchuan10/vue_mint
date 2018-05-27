@@ -10,40 +10,40 @@
         <div class="mui-slider-item">
             <ul class="mui-table-view mui-grid-view mui-grid-9">
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <a href="#">
+                    <router-link to="/home/newslist">
                         <span class="mui-icon mui-icon-home"></span>
-                        <div class="mui-media-body">Home</div>
-                    </a>
+                        <div class="mui-media-body">新闻列表</div>
+                    </router-link>
                 </li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <a href="#">
+                    <router-link to="#">
                         <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
                         <div class="mui-media-body">Email</div>
-                    </a>
+                    </router-link>
                 </li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <a href="#">
+                    <router-link to="#">
                         <span class="mui-icon mui-icon-chatbubble"></span>
                         <div class="mui-media-body">Chat</div>
-                    </a>
+                    </router-link>
                 </li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <a href="#">
+                    <router-link to="#">
                         <span class="mui-icon mui-icon-location"></span>
                         <div class="mui-media-body">location</div>
-                    </a>
+                    </router-link>
                 </li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <a href="#">
+                    <router-link to="#">
                         <span class="mui-icon mui-icon-search"></span>
                         <div class="mui-media-body">Search</div>
-                    </a>
+                    </router-link>
                 </li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <a href="#">
+                    <router-link to="#">
                         <span class="mui-icon mui-icon-phone"></span>
                         <div class="mui-media-body">Phone</div>
-                    </a>
+                    </router-link>
                 </li>
                 
             </ul>
@@ -57,7 +57,7 @@ export default {
     data() {
         return {
             lunList: []
-            
+
         };
     },
 

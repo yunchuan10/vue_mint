@@ -6,7 +6,9 @@
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{margin: 0;padding: 0;}
 /*body{font-family: "Microsoft YaHei","SimHei",Arial;font-size: 12px;}*/
 a{text-decoration: none;color: #000;cursor: pointer;}
-a:visited{color: #000}
+a:visited{color: #000;text-decoration: none;}
+a:hover{color: #000;text-decoration: none;}
+a:link{color: #000;text-decoration: none;}
 img{border:none\9;}
 button{outline: none;cursor: pointer;background-color: transparent;border-style: none;}
 li{list-style: none;}
