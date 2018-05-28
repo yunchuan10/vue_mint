@@ -37,13 +37,18 @@
 	
 </script>
 
-<style>
-	.app-section{padding: 40px 0 50px;width: 100%;overflow-x: hidden;}
+<style lang="less">
+	.app-section{
+		padding: 40px 0 50px;width: 100%;overflow-x: hidden;
+		
+		.ani-enter{opacity:0;transform: translateX(100%);}
+		.ani-leave-to{opacity:0;transform: translateX(-100%);}
+		.ani-leave, .ani-enter-to{opacity:1;transform: translateX(0);}
+		.ani-enter-active,.ani-leave-active{transition: all 0.5s ease;position: absolute;}
+		
+	}
 	
-	.ani-enter{opacity:0;transform: translateX(100%);}
-	.ani-leave-to{opacity:0;transform: translateX(-100%);}
-	.ani-leave, .ani-enter-to{opacity:1;transform: translateX(0);}
-	.ani-enter-active,.ani-leave-active{transition: all 0.5s ease;position: absolute;}
+	
 
 
 	

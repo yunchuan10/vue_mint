@@ -25,7 +25,7 @@ import './css/index.css'
 
 /*mint*/
 import 'mint-ui/lib/style.css'
-import {Header,Swipe, SwipeItem,Button} from 'mint-ui'
+import {Header,Swipe, SwipeItem,Button, Indicator } from 'mint-ui'
 
 /*mui*/
 import './lib/mui/css/icons-extra.css'

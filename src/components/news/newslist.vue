@@ -18,6 +18,7 @@
 
 <script>
 
+import { Indicator } from 'mint-ui'      //加载
 export default {
     data(){
         return{
@@ -25,8 +26,11 @@ export default {
         }
     },
     created(){
+        Indicator.open();
         setTimeout( () => {
             this.getNews();
+
+            Indicator.close();
         }, 2000 )
     },
     methods: {
