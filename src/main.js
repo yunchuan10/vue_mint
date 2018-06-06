@@ -25,21 +25,31 @@ import './css/index.css'
 
 /*mint*/
 import 'mint-ui/lib/style.css'
-import {Header,Swipe, SwipeItem,Button, Indicator } from 'mint-ui'
+// import {Header,Swipe, SwipeItem,Button, Indicator,Lazyload } from 'mint-ui'
+import MintUi from 'mint-ui'
+
+Vue.use(MintUi);
+
+import VuePreview from 'vue-preview'
+// defalut install
+Vue.use(VuePreview)
+console.log(VuePreview)
+
 
 /*mui*/
 import './lib/mui/css/icons-extra.css'
 import './lib/mui/css/mui.min.css'
-Vue.component( Header.name, Header )
+// Vue.component( Header.name, Header )
 
 import router from './router/router.js'
 import app from './app.vue'
 
 
 // 首页布局 轮播+列表
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+
 
 
 var vm = new Vue({
