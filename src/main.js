@@ -30,10 +30,16 @@ import MintUi from 'mint-ui'
 
 Vue.use(MintUi);
 
-import VuePreview from 'vue-preview'
-// defalut install
-Vue.use(VuePreview)
-console.log(VuePreview)
+// import VuePreview from 'vue-preview'
+// // defalut install
+// Vue.use(VuePreview)
+// console.log(VuePreview)
+
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+Vue.use(preview,{
+	fullscreenEl:true
+});
 
 
 /*mui*/
