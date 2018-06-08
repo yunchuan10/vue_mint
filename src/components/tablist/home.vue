@@ -1,10 +1,8 @@
 <template>
     <div class="home-section">
-        <div class="lunbox">
-            <mt-swipe :auto="4000" >
-                <mt-swipe-item v-for="( item, i ) in lunList" :num="i" :key="item.url"><img :src="item.src" alt=""></mt-swipe-item>
-            </mt-swipe>
-        </div>
+
+        <!-- 轮播组件 -->
+        <lun-bo :content="lunList"></lun-bo>
 
         <!-- 九宫格 -->
         <div class="mui-slider-item">
@@ -22,9 +20,9 @@
                     </router-link>
                 </li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                    <router-link to="#">
+                    <router-link to="/home/goods">
                         <span class="mui-icon mui-icon-chatbubble"></span>
-                        <div class="mui-media-body">Chat</div>
+                        <div class="mui-media-body">goodList</div>
                     </router-link>
                 </li>
                 <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -53,6 +51,9 @@
 </template>
 
 <script>
+
+import lunBo from '../lunbo.vue'
+
 export default {
     data() {
         return {
@@ -61,9 +62,14 @@ export default {
         };
     },
 
+    components: {
+        'lun-bo': lunBo
+    },
+
     created() {
         this.getLun();
     },
+    
 
     methods: {
         getLun() {
@@ -84,11 +90,6 @@ export default {
                     src:
                     "http://uliaobao.oss-cn-hangzhou.aliyuncs.com/orig/uliaobao/ad/2017/1219/21/prod-102514114-8448.jpg",
                     url: "3"
-                },
-                {
-                    src:
-                    "http://uliaobao.oss-cn-hangzhou.aliyuncs.com/orig/uliaobao/ad/2018/0524/21/prod-165616580-0147.jpg",
-                    url: "4"
                 }
                 ];
             }, 1000);
@@ -98,14 +99,9 @@ export default {
 </script>
 
 <style scoped>
-.lunbox {
-  height: 200px;
-  background: #ddd;
-}
-.mint-swipe-item > img {
-  width: 100%;
-  height: 100%;
-}
+
+
+
 </style>
 
 

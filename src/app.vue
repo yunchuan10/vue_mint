@@ -1,6 +1,7 @@
 <template>
 	<div class="app-section">
 		<!--头部-->
+		<span class="goBack" @click="goBack">返回</span>
 		<mt-header fixed title="固定在顶部"></mt-header>
 		
 		<!--内容区-->
@@ -32,12 +33,34 @@
 </template>
 
 <script>
-	
+	export default {
+    data() {
+        return {
+           
+        };
+    },
+
+    created() {
+        
+    },
+	mounted(){
+		
+	},
+    methods: {
+		goBack(){
+			this.$router.back();
+		}
+		
+    }
+};
 	
 	
 </script>
 
 <style lang="less">
+
+.goBack{position: fixed;font-size: 14px; height: 20px;width: 40px;color: #fff;top: 10px;left: 10px;z-index: 30;}
+
 
 	.app-section{
 		padding: 40px 0 50px;width: 100%;overflow-x: hidden;
@@ -49,8 +72,8 @@
 
 
 		.mui-bar-tab .mui-tab-item1.mui-active{color: #007aff;}
-		.mui-bar-tab .mui-tab-item1 .mui-icon{color: #007aff;}
-		.mui-bar-tab .mui-tab-item1 .mui-icon~.mui-tab-label{font-size: 11px;
+		.mui-bar-tab .mui-tab-item1 .mui-icon{color: #007aff;padding: 0;}
+		.mui-bar-tab .mui-tab-item1 .mui-icon .mui-tab-label{font-size: 11px;
 			display: block;
 			overflow: hidden;
 			text-overflow: ellipsis;}
@@ -64,6 +87,9 @@
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			color: #929292;}
+
+
+		.mint-header.is-fixed{z-index: 20;}	
 		
 	}
 	
