@@ -11,7 +11,7 @@
         </div>
         <!-- 商品购买 -->
         <div class="mui-card">
-            <div class="mui-card-header">页眉</div>
+            <div class="mui-card-header">商品购买</div>
             <div class="mui-card-content">
                 <div class="mui-card-content-inner">
                     <p class="price">
@@ -19,16 +19,17 @@
                         销售价： <span>￥201443</span>
                     </p>
                     <div style="color: #999;padding: 10px 0;">
-                        购买数量：
-                        <div class="mui-numbox" data-numbox-min='1' data-numbox-max='9'>
+                        <!-- <input @change="shopChange" ref="numbox" id="test" class="mui-input-numbox" type="number" value="1" /> -->
+                        <div class="mui-numbox" data-numbox-min='1' data-numbox-max='max'>
                             <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-                            <input id="test" class="mui-input-numbox" type="number" value="1" />
+                            <input @change="shopChange" ref="numbox" id="test" class="mui-input-numbox" type="number" value="1" />
                             <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
                         </div>
+                        (购买数量)
                     </div>
                     <p>
                         <mt-button type="primary" size="small">立即购买</mt-button>
-                        <mt-button type="danger" size="small">加入购物车</mt-button>
+                        <mt-button :disabled="shopBallDis" @click="shopBall" type="danger" size="small">加入购物车</mt-button>
                     </p>
 
                 </div>
@@ -37,13 +38,31 @@
         </div>
         <!-- 商品信息 -->
         <div class="mui-card">
-            <div class="mui-card-header">页眉</div>
+            <div class="mui-card-header">商品详情</div>
             <div class="mui-card-content">
                 <div class="mui-card-content-inner">
-                    包含页眉页脚的卡片，页眉常用来显示面板标题，页脚用来显示额外信息或支持的操作（比如点赞、评论等）
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
+                    详细信息： 。。。。
                 </div>
             </div>
         </div>
+
+        <transition  @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+            <div v-if="is_ball" ref="ball" class="ball"></div>
+        </transition>
+        
 
 	</div>
 </template>
@@ -53,10 +72,16 @@
 import { Indicator } from 'mint-ui'      //加载
 import lunBo from '../lunbo.vue'
 
+// import mui from '../../lib/mui/js/mui.min.js'
+
 export default {
     data(){
         return{
-            lunList: []
+            lunList: [],
+            is_ball: false,
+            max: 9,
+            shopBallDis:false,
+            shoplen: 1
         }
     },
     created(){
@@ -64,10 +89,64 @@ export default {
         this.getLun();
 	},
 	mounted() {
-
+        // mui('#test').numbox().setOption('step',1)
         
     },
     methods: {
+
+        shopChange(){
+            var val = (this.$refs.numbox.value+'').trim();
+            val = parseInt(val);
+            if(val<=0){
+                val = 1
+            }
+
+            if(val!=this.$refs.numbox.value){
+                this.$refs.numbox.value = val;
+            }
+        },
+
+        shopBall(){
+            if(!this.is_ball){
+                this.is_ball = true;
+            }
+        },
+        
+        beforeEnter( el ){
+            this.shopBallDis = true;
+            const numboxOps = this.$refs.numbox.getBoundingClientRect();
+            el.style.opacity = 0.5;
+            el.style.left = numboxOps.left+14+'px';
+            el.style.top = numboxOps.top+12+'px';
+            el.style.opacity = 0.5;
+            el.style.transform = 'translate(0,0)';
+        
+        },
+        enter( el, done ){
+            el.offsetWidth;
+            const numboxOps = this.$refs.ball.getBoundingClientRect();
+            const badgeOps = document.getElementById('ball-badge').getBoundingClientRect();
+            var _l = badgeOps.left - numboxOps.left;
+            var _t = badgeOps.top - numboxOps.top;
+
+            
+            el.style.transition = 'top 1s cubic-bezier(.31,-0.58,.63,1.1), left 1s ease, opacity 1s ease';
+            el.style.opacity = 1;
+            el.style.left = badgeOps.left+'px';
+            el.style.top = badgeOps.top+'px';
+            // el.style.transform = 'translate('+_l+'px,'+_t+'px)';
+            done();
+        },
+        afterEnter( el ){
+            setTimeout(() => {
+                this.shopBallDis = false;
+            }, 1000);
+            this.is_ball = false;
+        
+        },
+
+
+
         getLun() {
             setTimeout(() => {
                 
@@ -102,6 +181,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
+.ball{width: 15px;height: 15px;position: fixed;background: #f00;border-radius: 50%;z-index: 99; top: 30px; }
 
 .goods-section{background: #eee;overflow: hidden; }
 
