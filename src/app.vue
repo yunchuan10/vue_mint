@@ -20,7 +20,7 @@
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item1" to="/shopcar">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="ball-badge">0</span></span>
+				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="ball-badge" v-text="$store.state.shopCarNum"></span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item1" to="/search">
@@ -58,6 +58,8 @@
 </script>
 
 <style lang="less">
+
+.mui-slider-indicator.mui-segmented-control{background: #f3f3f3;}
 
 .goBack{position: fixed;font-size: 14px; height: 20px;width: 40px;color: #fff;top: 10px;left: 10px;z-index: 30;}
 

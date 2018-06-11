@@ -2,6 +2,10 @@
 
 import Vue from 'vue'
 
+// vuex 仓储
+import store from './store/store.js'
+
+
 
 // 全局过滤器
 Vue.filter(
@@ -16,10 +20,10 @@ Vue.filter(
 
 
 
-//import $ from 'jquery'
+// import $ from 'jquery'
 //import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css'
-//import 'bootstrap/dist/js/bootstrap.js'
+// import 'bootstrap/dist/js/bootstrap.js'
 
 import './css/index.css'
 
@@ -31,7 +35,7 @@ import MintUi from 'mint-ui'
 Vue.use(MintUi);
 
 // import VuePreview from 'vue-preview'
-// // defalut install
+// defalut install
 // Vue.use(VuePreview)
 // console.log(VuePreview)
 
@@ -61,6 +65,7 @@ import app from './app.vue'
 var vm = new Vue({
 	el: '#app',
 	router,
+	store,		// vuex仓储
 	render: h => h( app )
 	
 	

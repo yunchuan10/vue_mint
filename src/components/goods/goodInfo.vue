@@ -74,6 +74,7 @@ import lunBo from '../lunbo.vue'
 
 // import mui from '../../lib/mui/js/mui.min.js'
 
+
 export default {
     data(){
         return{
@@ -89,18 +90,17 @@ export default {
         this.getLun();
 	},
 	mounted() {
-        // mui('#test').numbox().setOption('step',1)
+        // mui('.mui-numbox').numbox().setOption('step',1)
+        // mui('.mui-numbox').numbox();
         
     },
     methods: {
 
         shopChange(){
-            var val = (this.$refs.numbox.value+'').trim();
-            val = parseInt(val);
-            if(val<=0){
+            var val = parseInt(this.$refs.numbox.value);
+            if( !val || val<=0 || val>this.max ){
                 val = 1
             }
-
             if(val!=this.$refs.numbox.value){
                 this.$refs.numbox.value = val;
             }
@@ -109,28 +109,28 @@ export default {
         shopBall(){
             if(!this.is_ball){
                 this.is_ball = true;
+                
             }
         },
         
         beforeEnter( el ){
             this.shopBallDis = true;
             const numboxOps = this.$refs.numbox.getBoundingClientRect();
-            el.style.opacity = 0.5;
+            el.style.opacity = 0.1;
             el.style.left = numboxOps.left+14+'px';
-            el.style.top = numboxOps.top+12+'px';
-            el.style.opacity = 0.5;
+            el.style.top = numboxOps.top+8+'px';
             el.style.transform = 'translate(0,0)';
         
         },
         enter( el, done ){
             el.offsetWidth;
-            const numboxOps = this.$refs.ball.getBoundingClientRect();
+            // const numboxOps = this.$refs.ball.getBoundingClientRect();
             const badgeOps = document.getElementById('ball-badge').getBoundingClientRect();
-            var _l = badgeOps.left - numboxOps.left;
-            var _t = badgeOps.top - numboxOps.top;
+            // var _l = badgeOps.left - numboxOps.left;
+            // var _t = badgeOps.top - numboxOps.top;
 
             
-            el.style.transition = 'top 1s cubic-bezier(.31,-0.58,.63,1.1), left 1s ease, opacity 1s ease';
+            el.style.transition = 'top 0.8s cubic-bezier(.31,-0.58,.63,1.1), left 0.8s ease, opacity 0.8s ease';
             el.style.opacity = 1;
             el.style.left = badgeOps.left+'px';
             el.style.top = badgeOps.top+'px';
@@ -139,8 +139,14 @@ export default {
         },
         afterEnter( el ){
             setTimeout(() => {
+                var val = parseInt(this.$refs.numbox.value);
+                if(!val || val<=0){
+                    val = 1
+                }
+                this.$store.commit('setCarNum', val);
                 this.shopBallDis = false;
-            }, 1000);
+
+            }, 800);
             this.is_ball = false;
         
         },
