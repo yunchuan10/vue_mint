@@ -78,6 +78,7 @@ import lunBo from '../lunbo.vue'
 export default {
     data(){
         return{
+            id: this.$route.params.id,
             lunList: [],
             is_ball: false,
             max: 9,
@@ -101,6 +102,7 @@ export default {
             if( !val || val<=0 || val>this.max ){
                 val = 1
             }
+            
             if(val!=this.$refs.numbox.value){
                 this.$refs.numbox.value = val;
             }
@@ -109,7 +111,20 @@ export default {
         shopBall(){
             if(!this.is_ball){
                 this.is_ball = true;
-                
+                setTimeout(() => {
+                    var val = parseInt(this.$refs.numbox.value);
+                    if(!val || val<=0){
+                        val = 1
+                    }
+                    var obj = {
+                        id: this.id,
+                        count: val
+                    }
+                    console.log(obj)
+                    this.$store.commit('addCar', obj);
+                    this.shopBallDis = false;
+
+                }, 800);
             }
         },
         
@@ -138,15 +153,7 @@ export default {
             done();
         },
         afterEnter( el ){
-            setTimeout(() => {
-                var val = parseInt(this.$refs.numbox.value);
-                if(!val || val<=0){
-                    val = 1
-                }
-                this.$store.commit('setCarNum', val);
-                this.shopBallDis = false;
-
-            }, 800);
+            
             this.is_ball = false;
         
         },
