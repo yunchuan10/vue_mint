@@ -28,11 +28,29 @@ export default new Vuex.Store({
         //     return state.city;
         // }
         shopCarNum(state){
-            var c=0;
+            var c = 0;
             state.car.forEach ( item => {
-                c+=item.count;
+                c += item.count;
             });
             return c;
+        },
+        shopCarCount(state){
+            var c = 0;
+            state.car.forEach ( item => {
+                if(item.select){
+                    c += item.count;
+                }
+            });
+            return c;
+        },
+        shopCarMunny(state){
+            var m=0;
+            state.car.forEach ( item => {
+                if(item.select){
+                    m += item.count*item.price;
+                }
+            });
+            return m;
         }
         
     },
@@ -75,9 +93,18 @@ export default new Vuex.Store({
             });
             
             if(!flag){
-                state.car.push(goodInfo)
+                state.car.push(goodInfo);
             }
+        },
+        delCraItem( state, id ){
+            state.car.some ( (item, i) => {
+                if( item.id == id ){
+                    state.car.splice(i, 1);
+                }
+
+            });
         }
+
     }
 });
 

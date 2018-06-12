@@ -1,7 +1,7 @@
 <template>
 	<div class="app-section">
 		<!--头部-->
-		<span class="goBack" @click="goBack">返回</span>
+		<span v-show="$route.path != '/home'" class="goBack" @click="goBack">返回</span>
 		<mt-header fixed title="固定在顶部"></mt-header>
 		
 		<!--内容区-->
